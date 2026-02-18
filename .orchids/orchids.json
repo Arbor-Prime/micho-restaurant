@@ -1,0 +1,6 @@
+{
+  "projectId": "3b7e34d0-a214-4dcd-b631-ed48708cfa21",
+  "createdAt": 1771444236520,
+  "startupCommands": ["powershell -Command \"Set-Location 'C:\\Users\\HP Elitebook\\orchids-projects\\black-porcupine\\micho-app'; bun install; bun run dev\""],
+  "templateId": "any"
+}
