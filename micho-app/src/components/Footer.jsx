@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { neighbourhoods } from '../data/neighbourhoods'
 
 const footerLinks = [
   { label: 'Welcome', to: '/' },
@@ -93,22 +94,40 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Opening hours strip */}
-        <div className="py-8 border-b border-text-primary/5 overflow-x-auto">
-          <div className="flex gap-6 min-w-max">
-            {[
-              { d: 'Mon–Thu', h: '12:00–22:00' },
-              { d: 'Fri–Sat', h: '12:00–23:00' },
-              { d: 'Sunday', h: '13:00–21:00' },
-            ].map((row) => (
-              <div key={row.d} className="flex items-center gap-3">
-                <span className="font-sans text-xs font-semibold uppercase tracking-label text-text-muted">{row.d}</span>
-                <span className="font-sans text-xs text-text-muted">{row.h}</span>
-                <span className="w-px h-3 bg-text-primary/10" />
-              </div>
-            ))}
+          {/* Opening hours strip */}
+          <div className="py-8 border-b border-text-primary/5 overflow-x-auto">
+            <div className="flex gap-6 min-w-max">
+              {[
+                { d: 'Mon–Thu', h: '12:00–22:00' },
+                { d: 'Fri–Sat', h: '12:00–23:00' },
+                { d: 'Sunday', h: '13:00–21:00' },
+              ].map((row) => (
+                <div key={row.d} className="flex items-center gap-3">
+                  <span className="font-sans text-xs font-semibold uppercase tracking-label text-text-muted">{row.d}</span>
+                  <span className="font-sans text-xs text-text-muted">{row.h}</span>
+                  <span className="w-px h-3 bg-text-primary/10" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+
+          {/* Neighbourhood SEO links */}
+          <div className="py-10 border-b border-text-primary/5">
+            <p className="font-sans text-xs font-semibold uppercase tracking-label text-accent-copper mb-6">
+              Turkish food nearby?
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-3">
+              {neighbourhoods.map((n) => (
+                <Link
+                  key={n.slug}
+                  to={n.path}
+                  className="font-sans text-xs text-text-muted/70 hover:text-accent-copper transition-colors duration-200 truncate"
+                >
+                  {n.name}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Bottom */}
           <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
