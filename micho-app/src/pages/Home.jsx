@@ -426,25 +426,30 @@ export default function Home() {
         >
           {/* CSS grid: 3 cols, auto rows. Each cell gets a fixed height via style.
               Spanning cells use grid-row/column. No aspect-ratio so heights are explicit. */}
-          <div
-            className="gallery-grid grid gap-3 md:gap-4"
-            style={{
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gridTemplateRows: 'repeat(3, 280px) 220px',
-            }}
-          >
-            {/* [0,0] meatballs — col 1, row 1 */}
-            {[
-              { src: IMG_FOOD1,         alt: 'Turkish meze',              col: '1', row: '1' },
-              { src: IMG_FOOD2,         alt: 'Grilled meats',             col: '2', row: '1' },
-              { src: IMG_FOOD3,         alt: 'Turkish cuisine',           col: '3', row: '1' },
-              { src: IMG_FOOD4,         alt: 'Turkish cuisine spread',    col: '1 / span 2', row: '2' },
-              { src: '/food-kofte.png', alt: 'Köfte in cast iron',        col: '3', row: '2' },
-              { src: '/food-salad.jpg', alt: 'Pomegranate salad',         col: '1', row: '3' },
-              { src: '/food-pide.png',  alt: 'Turkish pide',              col: '2 / span 2', row: '3' },
-              { src: '/food-lamb.png',  alt: 'Lamb chops with bulgur',    col: '1 / span 2', row: '4' },
-              { src: '/food-icli-kofte.jpg', alt: 'Içli köfte starter',  col: '3', row: '3 / span 2' },
-            ].map(({ src, alt, col, row }, i) => (
+            <div
+              className="gallery-grid grid gap-3 md:gap-4"
+              style={{
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateRows: '280px 280px 280px 240px',
+              }}
+            >
+              {/* Layout (3 cols × 4 rows, no overlaps):
+                  Row 1: meatballs | grilled meats | Turkish cuisine
+                  Row 2: spread (2col wide) | köfte cast iron
+                  Row 3: salad | pide | icli köfte
+                  Row 4: lamb chops (full 3col)
+              */}
+              {[
+                { src: IMG_FOOD1,              alt: 'Turkish meze',           col: '1',         row: '1' },
+                { src: IMG_FOOD2,              alt: 'Grilled meats',          col: '2',         row: '1' },
+                { src: IMG_FOOD3,              alt: 'Turkish cuisine',        col: '3',         row: '1' },
+                { src: IMG_FOOD4,              alt: 'Turkish cuisine spread', col: '1 / span 2',row: '2' },
+                { src: '/food-kofte.png',      alt: 'Köfte in cast iron',     col: '3',         row: '2' },
+                { src: '/food-salad.jpg',      alt: 'Pomegranate salad',      col: '1',         row: '3' },
+                { src: '/food-pide.png',       alt: 'Turkish pide',           col: '2',         row: '3' },
+                { src: '/food-icli-kofte.jpg', alt: 'Içli köfte starter',     col: '3',         row: '3' },
+                { src: '/food-lamb.png',       alt: 'Lamb chops with bulgur', col: '1 / span 3',row: '4' },
+              ].map(({ src, alt, col, row }, i) => (
               <motion.div
                 key={i}
                 className="overflow-hidden relative group"
