@@ -111,13 +111,11 @@ export default function Footer() {
           {/* Opening hours strip */}
           <div className="py-8 border-b border-text-primary/5 overflow-x-auto">
             <div className="flex gap-6 min-w-max">
-                {[
-                  { d: 'Monday', h: '4pm–11pm' },
-                  { d: 'Tuesday', h: 'Closed' },
-                  { d: 'Wed–Thu', h: '4pm–11pm' },
-                  { d: 'Fri–Sat', h: '12pm–11pm' },
-                  { d: 'Sunday', h: '12pm–9pm' },
-                ].map((row) => (
+              {[
+                { d: 'Mon–Thu', h: '12:00–22:00' },
+                { d: 'Fri–Sat', h: '12:00–23:00' },
+                { d: 'Sunday', h: '13:00–21:00' },
+              ].map((row) => (
                 <div key={row.d} className="flex items-center gap-3">
                   <span className="font-sans text-xs font-semibold uppercase tracking-label text-text-muted">{row.d}</span>
                   <span className="font-sans text-xs text-text-muted">{row.h}</span>

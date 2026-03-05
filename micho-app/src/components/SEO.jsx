@@ -30,12 +30,11 @@ const localBusinessSchema = {
     latitude: 53.3826,
     longitude: -1.496,
   },
-    openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday'], opens: '16:00', closes: '23:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Wednesday', 'Thursday'], opens: '16:00', closes: '23:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday', 'Saturday'], opens: '12:00', closes: '23:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday'], opens: '12:00', closes: '21:00' },
-    ],
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '12:00', closes: '22:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday', 'Saturday'], opens: '12:00', closes: '23:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Sunday'], opens: '13:00', closes: '21:00' },
+  ],
   servesCuisine: ['Turkish', 'Mediterranean', 'Bar food'],
   priceRange: '££',
   hasMap: 'https://maps.google.com/?q=200+Crookes+Sheffield+S10+1TG',
